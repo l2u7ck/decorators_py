@@ -10,7 +10,7 @@ def logger(path):
             time_call_fun = datetime.now()
             result = old_function(*args, **kwargs)
 
-            with open(f'{path}', 'a') as log_file:
+            with open(f'{path}', 'a', encoding="utf-8") as log_file:
                 log_file.write(f"{time_call_fun}, {old_function.__name__}, {args}, {kwargs}, {result}\n")
 
             return result
