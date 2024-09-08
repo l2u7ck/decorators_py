@@ -8,8 +8,10 @@ def logger(old_function):
 
         result = old_function(*args, **kwargs)
 
-        with open('main.log', 'w') as log_file:
+        with open('main.log', 'a') as log_file:
             log_file.write(f"{datetime.now()}, {old_function.__name__}, {args}, {kwargs}, {result}\n")
+
+        return result
 
     return new_function
 
