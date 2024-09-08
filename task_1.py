@@ -6,10 +6,11 @@ def logger(old_function):
 
     def new_function(*args, **kwargs):
 
+        time_call_fun = datetime.now()
         result = old_function(*args, **kwargs)
 
         with open('main.log', 'a') as log_file:
-            log_file.write(f"{datetime.now()}, {old_function.__name__}, {args}, {kwargs}, {result}\n")
+            log_file.write(f"{time_call_fun}, {old_function.__name__}, {args}, {kwargs}, {result}\n")
 
         return result
 
